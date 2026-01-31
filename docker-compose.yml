@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    image: paulinewade/csce431:sp26v1
+    volumes:
+      - .:/directory
+    working_dir: /directory
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_USER=blog_user
+      - DATABASE_PASSWORD=blog_password
+      - RAILS_ENV=test
+    stdin_open: true
+    tty: true
+    command: bash

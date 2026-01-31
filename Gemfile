@@ -67,4 +67,4 @@ end
 gem "webpacker", "~> 5.4"
 
 # Add gem to manage db
-gem 'yaml_db'
+gem "yaml_db"
