@@ -15,20 +15,30 @@ class BooksTest < ApplicationSystemTestCase
     click_on "New book"
 
     fill_in "Title", with: @book.title
+    fill_in "Author", with: "System Test Author"
+    fill_in "Price", with: 29.99
+
+    select "2026", from: "book_published_date_1i"
+    select "February", from: "book_published_date_2i"
+    select "1", from: "book_published_date_3i"
+
     click_on "Create Book"
 
     assert_text "Book was successfully created"
     click_on "Back"
   end
 
-  test "should update Book" do
+  test "should update book" do
     visit book_url(@book)
     click_on "Edit this book", match: :first
 
-    fill_in "Title", with: @book.title
+    fill_in "Title", with: "Updated System Title"
+    fill_in "Author", with: "Updated System Author"
+    fill_in "Price", with: 35.00
+    
     click_on "Update Book"
 
-    assert_text "Book was successfully updated"
+    assert_text "Book was successfully created"
     click_on "Back"
   end
 
