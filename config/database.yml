@@ -16,8 +16,8 @@ development:
 test:
   <<: *default
   database: test_app_test  
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 production:
   primary: &primary_production
