@@ -35,7 +35,7 @@ class BooksTest < ApplicationSystemTestCase
     fill_in "Title", with: "Updated System Title"
     fill_in "Author", with: "Updated System Author"
     fill_in "Price", with: 35.00
-    
+
     click_on "Update Book"
 
     assert_text "Book was successfully created"
