@@ -65,7 +65,7 @@ group :test do
   gem "minitest", "< 6.0.0"
 end
 
-#gem "webpacker", "~> 5.4"
+# gem "webpacker", "~> 5.4"
 
 # Add gem to manage db
 gem "yaml_db"
