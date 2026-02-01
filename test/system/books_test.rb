@@ -38,7 +38,7 @@ class BooksTest < ApplicationSystemTestCase
 
     click_on "Update Book"
 
-    assert_text "Book was successfully created"
+    assert_text "Book was successfully updated"
     click_on "Back"
   end
 
