@@ -34,11 +34,10 @@ class BooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /books/1 or /books/1.json
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: "Book was successfully updated.", status: :see_other }
+        format.html { redirect_to @book, notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,12 +46,11 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy!
 
     respond_to do |format|
-      format.html { redirect_to books_path, notice: "Book was successfully destroyed.", status: :see_other }
+      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +63,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.expect(book: [ :title ])
+      params.expect(book: [ :title, :author, :price, :published_date ])
     end
 end
