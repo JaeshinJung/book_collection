@@ -1,7 +1,12 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# test/fixtures/books.yml
 one:
-  title: MyString
+  title: "My String"
+  author: "Initial Author"
+  price: 9.99
+  published_date: "2026-01-01"
 
 two:
-  title: MyString
+  title: "Another Book"
+  author: "Second Author"
+  price: 15.50
+  published_date: "2026-01-02"

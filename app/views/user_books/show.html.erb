@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @user_book %>">
+  <p>
+    <strong>User:</strong>
+    <%= @user_book.user.username %>
+  </p>
+
+  <p>
+    <strong>Book:</strong>
+    <%= @user_book.book.title %>
+  </p>
+</div>
+
+<hr>
+
+<div>
+  <%= link_to "Edit this user book", edit_user_book_path(@user_book) %> |
+  <%= link_to "Back to user books", user_books_path %>
+
+  <%= button_to "Destroy this user book", @user_book, method: :delete %>
+</div>
