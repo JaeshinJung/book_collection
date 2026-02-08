@@ -1,0 +1,16 @@
+<h2>Log in</h2>
+
+<%= button_to "Sign in with GoogleOauth2", user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false }, style: "background-color: #4285F4; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" %>
+
+<br><br>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end %>
+
+<br>
+<%= link_to "Back to Home", root_path %>

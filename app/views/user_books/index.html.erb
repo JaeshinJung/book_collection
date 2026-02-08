@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <h1>You're logged in! Welcome!</h1>
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo: false }, style: "background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0; font-size: inherit; font-family: inherit;" %>
+<% end %>
 
 <h1>User Books</h1>
+<h3>Have <%= @user_books.count %> books!</h3>
 
 <table>
   <thead>
@@ -14,8 +18,8 @@
   <tbody>
     <% @user_books.each do |user_book| %>
       <tr>
-        <td><%= User.where(id: user_book.user_id).last.username %></td>
-        <td><%= Book.where(id: user_book.book_id).last.title %></td>
+        <td><%= user_book.user.username %></td>
+        <td><%= user_book.book.title %></td>
         <td><%= link_to 'Show', user_book %></td>
         <td><%= link_to 'Edit', edit_user_book_path(user_book) %></td>
         <td><%= link_to 'Destroy', user_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
