@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe "users/new", type: :view do
   before(:each) do
     assign(:user, User.new(
-      username: "MyString"
+      username: "testuser",
+      email: "test@example.com",
+      password: "password123",
+      password_confirmation: "password123"
     ))
   end
 

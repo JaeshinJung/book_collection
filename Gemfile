@@ -1,4 +1,9 @@
 source "https://rubygems.org"
+# Authentication
+gem "devise"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+gem "dotenv-rails", groups: [ :development, :test ]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.3"
@@ -63,6 +68,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "minitest", "< 6.0.0"
+  gem "simplecov", require: false
 end
 
 # gem "webpacker", "~> 5.4"
