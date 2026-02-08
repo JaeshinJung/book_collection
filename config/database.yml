@@ -4,6 +4,7 @@ default: &default
   host: localhost
   username: postgres
   password: password
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -12,6 +13,9 @@ development:
 test:
   <<: *default
   database: test_app_test
+  # CI environments (Heroku) often provide the DB URL via environment variable.
+  # If present, Rails will prioritize this 'url' over 'host'/'username'/'password'.
+  url: <%= ENV["DATABASE_URL"] %>
 
 production:
   primary: &primary_production
@@ -19,7 +23,7 @@ production:
     database: test_app_production
     username: test_app
     password: <%= ENV["TEST_APP_DATABASE_PASSWORD"] %>
-    url: <%= ENV['DATABASE_URL'] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *primary_production
     database: test_app_production_cache
