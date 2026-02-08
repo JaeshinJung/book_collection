@@ -11,13 +11,9 @@ development:
   database: test_app_development
 
 test:
-  <% if ENV['DATABASE_URL'] %>
-    url: <%= ENV['DATABASE_URL'] %>
-    adapter: postgresql
-  <% else %>
-    <<: *default
-    database: test_app_test
-  <% end %>
+  <<: *default
+  database: test_app_test
+  url: <%= ENV['DATABASE_URL'] %>
 
 production:
   primary: &primary_production
