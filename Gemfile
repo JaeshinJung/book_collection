@@ -68,6 +68,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "minitest", "< 6.0.0"
+  gem "simplecov", require: false
 end
 
 # gem "webpacker", "~> 5.4"
