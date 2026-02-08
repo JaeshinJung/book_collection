@@ -1,0 +1,17 @@
+{
+    "environments": {
+        "test": {
+            "addons": [
+                "heroku-postgresql:in-db"
+            ],
+            "env": {
+                "GOOGLE_OAUTH_CLIENT_ID": {
+                    "required": true
+                },
+                "GOOGLE_OAUTH_CLIENT_SECRET": {
+                    "required": true
+                }
+            }
+        }
+    }
+}
