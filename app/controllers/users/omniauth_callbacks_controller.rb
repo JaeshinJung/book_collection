@@ -1,12 +1,12 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
-    from_google_params = from_google_params
+    extracted_params = from_google_params
 
-    if from_google_params.nil?
+    if extracted_params.nil?
       redirect_to new_user_session_path, alert: "Could not authenticate via Google (Params missing)."
     else
       # Get User Object (Regardless of Persistence)
-      @user = User.from_google(**from_google_params)
+      @user = User.from_google(**extracted_params)
 
       if @user && @user.persisted?
         sign_out_all_scopes
