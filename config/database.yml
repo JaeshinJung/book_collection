@@ -11,11 +11,13 @@ development:
   database: test_app_development
 
 test:
-  <<: *default
-  database: test_app_test
-  # CI environments (Heroku) often provide the DB URL via environment variable.
-  # If present, Rails will prioritize this 'url' over 'host'/'username'/'password'.
-  url: <%= ENV["DATABASE_URL"] %>
+  <% if ENV['DATABASE_URL'] %>
+    url: <%= ENV['DATABASE_URL'] %>
+    adapter: postgresql
+  <% else %>
+    <<: *default
+    database: test_app_test
+  <% end %>
 
 production:
   primary: &primary_production
