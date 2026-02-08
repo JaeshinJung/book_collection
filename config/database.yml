@@ -11,10 +11,9 @@ development:
   database: test_app_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  url: <%= ENV['DATABASE_URL'] || "postgres://postgres:password@localhost/test_app_test" %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] ? ENV['DATABASE_URL'].split('/').last.split('?').first : "test_app_test" %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 production:
   primary: &primary_production

@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe "users/edit", type: :view do
   let(:user) {
     User.create!(
-      username: "MyString"
+      username: "testuser",
+      email: "test@example.com",
+      password: "password123",
+      password_confirmation: "password123"
     )
   }
 
